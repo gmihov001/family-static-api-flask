@@ -28,6 +28,7 @@ class Family:
             {
             "id": self._generateId(),
             "first_name": "John",
+            "last_name": "Doe",
             "age": 33,
             "gender": "Male",
             "lucky_numbers": [7, 13, 22]
@@ -35,6 +36,7 @@ class Family:
             {
             "id": self._generateId(),
             "first_name": "Jane",
+            "last_name": "Doe",
             "age": 35,
             "gender": "Female",
             "lucky_numbers": [10, 14, 3]
@@ -42,6 +44,7 @@ class Family:
             {
             "id": self._generateId(),
             "first_name": "Jimmy",
+            "last_name": "Doe",
             "age": 5,
             "gender": "Male",
             "lucky_numbers": [1]
@@ -75,6 +78,10 @@ class Family:
     def get_all_members(self):
         return self._members
 
+    def get_all_numbers(self, id):
+        #create loop to concatenate all family members' numbers
+        return
+
 doe_family = Family("Doe")
 
 # Handle/serialize errors like a JSON object
@@ -88,12 +95,14 @@ def sitemap():
     return generate_sitemap(app)
 
 @app.route('/members', methods=['GET'])
-def get_all_members(self):
-    response_body = {
-        "hello": "world"
-    }
+def results():
 
-    return jsonify(response_body), 200
+    response = {
+        "members": doe_family.get_all_members(),
+        "family_name": doe_family.last_name,
+        "lucky_numbers": doe_family.get_all_numbers()
+    }
+    return jsonify(response), 200
 
 @app.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
